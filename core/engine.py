@@ -1,13 +1,11 @@
-from core.scoring import calculate_score
+from services.scoring_service import ScoringService
+from pipelines.pipeline import ProcessingPipeline
 from core.decision import make_decision
 
 def run_engine(data: dict):
     signals = data.get("signals", [])
 
-    score = calculate_score(signals)
-    decision = make_decision(score)
+    scorer = ScoringService()
+    pipeline = ProcessingPipeline(scorer, make_decision)
 
-    return {
-        "score": score,
-        "decision": decision
-    }
+    return pipeline.run(signals)

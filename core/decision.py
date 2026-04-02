@@ -1,7 +1,8 @@
+from config.settings import Settings
+
 def make_decision(score):
-    if score > 0.6:
+    if score >= Settings.THRESHOLDS["approve"]:
         return "approve"
-    elif score > 0.4:
+    elif score >= Settings.THRESHOLDS["review"]:
         return "review"
-    else:
-        return "reject"
+    return "reject"
