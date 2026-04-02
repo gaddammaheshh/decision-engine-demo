@@ -1,23 +1,31 @@
-## Real-world context
+# Decision Engine Demo
 
-This project is a simplified version of a larger decision engine I’ve been building, designed to demonstrate the architecture, execution flow, and API integration in a safe and reproducible way.
+A modular backend system that processes structured inputs into deterministic outputs using a pipeline-driven architecture.
 
-def calculate_score(signals):
-    if not signals:
-        return 0.0
+## Key Concepts
 
-    weights = [0.2, 0.3, 0.3, 0.2]
-    score = sum(s * w for s, w in zip(signals, weights[:len(signals)]))
-    return score
+- Deterministic processing (same input → same output)
+- Modular architecture with clear separation of concerns
+- Pipeline orchestration for execution flow
+- Config-driven decision logic
+- API-ready system (FastAPI)
 
-    ## Architecture
+## Architecture
 
-This project follows a modular backend design with clear separation of concerns:
+- **API Layer** → Handles incoming requests  
+- **Pipeline Layer** → Controls execution flow  
+- **Service Layer** → Handles computation  
+- **Core Layer** → Decision logic  
+- **Config Layer** → System thresholds  
 
-- API Layer → Handles requests
-- Pipeline Layer → Orchestrates execution flow
-- Service Layer → Handles computation logic
-- Core Layer → Decision logic
-- Config Layer → Threshold and system settings
+## Example Flow
 
-Designed for scalability and integration into larger systems.
+Input → Normalize → Score → Decision → Output
+
+
+## Design Principles
+
+- Deterministic outputs for reproducibility
+- Separation of concerns across layers
+- Extensible pipeline architecture
+- Designed for integration into larger systems
