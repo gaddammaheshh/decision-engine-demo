@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.envgit add .
+git commit -m "Clean repo: removed pycache and added gitignore"
+git push
