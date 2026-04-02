@@ -15,3 +15,13 @@ def analyze(data: InputSchema):
 
     weights = [0.2, 0.3, 0.3, 0.2]
 score = sum(s * w for s, w in zip(signals, weights))
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+    from models.schema import InputSchema
+
+@app.post("/analyze")
+def analyze(data: InputSchema):
+    return run_engine(data.dict())

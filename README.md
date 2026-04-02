@@ -29,3 +29,7 @@ Input → Normalize → Score → Decision → Output
 - Separation of concerns across layers
 - Extensible pipeline architecture
 - Designed for integration into larger systems
+
+## Why this project
+
+This project demonstrates how structured decision-making systems can be built using a modular backend architecture. It focuses on clarity, reproducibility, and extensibility rather than complexity.
