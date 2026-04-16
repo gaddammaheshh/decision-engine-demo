@@ -18,7 +18,6 @@ Decision systems often need to process complex structured data, apply configurab
 - **Explainability** — Clear reasoning behind every decision
 - **Robust Validation** — Strong input validation and meaningful error responses
 - **Clean Architecture** — Clear separation between API, services, core logic, and pipelines
-- **AI enabled Capital Clearance Engine
 
 ## Key Features
 
@@ -35,27 +34,29 @@ Decision systems often need to process complex structured data, apply configurab
 
 ```mermaid
 flowchart TD
-    A[Client Request] --> B[API Layer<br>(Routes + Schemas)]
+    A[Client Request] --> B[API Layer\n(Routes + Schemas)]
     B --> C[Input Validation]
     C --> D[Pipeline Orchestrator]
     D --> E[Services Layer]
     E --> F[Core Decision Logic]
     F --> G[Explainability Engine]
     G --> H[Response Assembly]
-    H --> I[JSON Response with Explanation]
+    H --> I[JSON Response\nwith Explanation]
     
     style F fill:#e3f2fd,stroke:#1976d2
 
 
-##Design Principles:
+
+Design Principles:
 
 Core logic is kept pure and side-effect free
-Services handle domain rules while remaining decoupled
+Services handle domain rules while remaining decoupled from pipelines and API
 Pipeline steps are independent and easily extensible
-API layer focuses only on HTTP concerns
+API layer focuses only on HTTP concerns (routing, validation, responses)
 
 Project Structure
-textdecision-engine-demo/
+
+decision-engine-demo/
 ├── api/              # FastAPI routes, dependencies, and Pydantic schemas
 ├── core/             # Pure deterministic decision logic (highly testable)
 ├── pipelines/        # Pipeline definitions and step orchestration
@@ -69,9 +70,8 @@ textdecision-engine-demo/
 ├── requirements.txt
 └── README.md
 
-
 Quick Start
-Bash# 1. Clone the repository
+# 1. Clone the repository
 git clone https://github.com/gaddammaheshh/decision-engine-demo.git
 cd decision-engine-demo
 
@@ -84,13 +84,16 @@ pip install -r requirements.txt
 
 # 4. Run the development server
 uvicorn api.main:app --reload --port 8000
+
+
 Open your browser and navigate to:
 http://localhost:8000/docs — Interactive Swagger UI
 API Usage Example
 Main Endpoint
 POST /decide
 Request Body:
-JSON{
+
+{
   "features": {
     "revenue": 1250000,
     "expenses": 890000,
@@ -105,8 +108,8 @@ JSON{
     "region": "APAC"
   }
 }
-Response:
-JSON{
+
+{
   "decision": "APPROVED",
   "score": 78.4,
   "threshold": 65.0,
@@ -129,6 +132,8 @@ JSON{
     "pipeline_steps_executed": 6
   }
 }
+
+
 What This Demonstrates
 This project highlights key software engineering competencies valued in professional roles:
 
@@ -141,17 +146,15 @@ Maintaining clear separation of concerns for long-term maintainability
 Creating well-documented, easy-to-run projects
 
 These skills are directly transferable to domains such as fintech, risk engines, eligibility systems, workflow automation, and configurable business platforms.
-Running Tests
-Bash# Run tests with coverage report
+
+
+# Run tests with coverage report
 pytest tests/ -v --cov=. --cov-report=term-missing
 
-Running Tests
-Bash# Run tests with coverage report
-pytest tests/ -v --cov=. --cov-report=term-missing
+
 Live Demo
-The app is deployed and accessible at:
-Live Demo → https://your-app-name.onrender.com/docs
-(Replace the link above with your actual deployed URL once you deploy it. Render is the easiest free option for FastAPI — it auto-detects Python and uvicorn. Other good free alternatives include Railway or Leapcell.)
+The app can be deployed easily on free platforms like Render or Railway.
+Once deployed, update this section with your actual URL (usually ends with .onrender.com/docs).
 Future Enhancements (Planned Ideas)
 
 Docker containerization
@@ -162,3 +165,12 @@ Database integration examples
 
 License
 This project is licensed under the MIT License.
+text
+
+
+This version should now render the Mermaid diagram correctly on GitHub.
+
+**Next recommendation:**  
+Deploy the app on **Render** (free tier is sufficient). It’s the quickest way to have a working "Live Demo" link. If you want, reply with “deploy guide” and I’ll give you the exact step-by-step instructions for Render (including the correct start command).
+
+Let me know if you want any other small tweaks (e.g., change the endpoint name to your actual one, update sample JSON, or shorten any section).
