@@ -144,3 +144,21 @@ These skills are directly transferable to domains such as fintech, risk engines,
 Running Tests
 Bash# Run tests with coverage report
 pytest tests/ -v --cov=. --cov-report=term-missing
+
+Running Tests
+Bash# Run tests with coverage report
+pytest tests/ -v --cov=. --cov-report=term-missing
+Live Demo
+The app is deployed and accessible at:
+Live Demo → https://your-app-name.onrender.com/docs
+(Replace the link above with your actual deployed URL once you deploy it. Render is the easiest free option for FastAPI — it auto-detects Python and uvicorn. Other good free alternatives include Railway or Leapcell.)
+Future Enhancements (Planned Ideas)
+
+Docker containerization
+GitHub Actions CI/CD pipeline
+Async support for heavier workloads
+Advanced explainability features
+Database integration examples
+
+License
+This project is licensed under the MIT License.
